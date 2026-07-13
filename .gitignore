@@ -3,7 +3,9 @@ node_modules/
 
 # build
 dist/
+dist-ssr/
 build/
+*.local
 
 # секреты и локальный конфиг — НИКОГДА в публичный репо
 .env
