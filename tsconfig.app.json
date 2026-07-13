@@ -5,6 +5,13 @@
     "lib": ["ES2023", "DOM"],
     "module": "esnext",
     "types": ["vite/client"],
+
+    /* Алиас '@' → src (должен совпадать с resolve.alias в vite.config.ts).
+       В TS 6 baseUrl устарел — paths резолвятся относительно этого tsconfig. */
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
     "allowArbitraryExtensions": true,
     "skipLibCheck": true,
 
