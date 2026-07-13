@@ -15,3 +15,7 @@ build/
 # логи, мусор ОС
 *.log
 .DS_Store
+
+# IDE
+.idea/
+.vscode/
