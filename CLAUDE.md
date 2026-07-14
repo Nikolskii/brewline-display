@@ -30,6 +30,12 @@ Per-repo файл его не дублирует целиком.
 - Полностью зависит от контракта `brewline-backend` (OpenAPI = источник истины).
 - Адрес API — через env (`VITE_API_URL`); хардкодить URL нельзя.
 
+## Контракт (типы из OpenAPI)
+- `openapi/openapi.yaml` — **вендорная копия** спеки из `brewline-backend` (зафиксированная версия, ADR 0008).
+- `npm run gen:api` → `src/generated/openapi.ts` (коммитим сгенерированное; линт/prettier его игнорируют).
+- **Обновление контракта** (пока вручную): скопировать свежий `openapi.yaml` из backend → `npm run gen:api`.
+  Временное решение до npm-пакета `@brewline/api-types` (условие пересмотра — ADR 0008).
+
 ## Локальный запуск (наполнится по мере кода)
 - `npm run dev` (Vite).
 - Требует запущенный backend + Mongo (из `brewline-infra`).

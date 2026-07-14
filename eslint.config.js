@@ -8,7 +8,7 @@ import prettier from 'eslint-config-prettier';
 // Flat config (ESLint 10). react-hooks@7 в готовом конфиге отдаёт plugins легаси-массивом,
 // поэтому подключаем его вручную (плагин объектом + правила спредом). prettier — последним.
 export default tseslint.config(
-  { ignores: ['dist'] },
+  { ignores: ['dist', 'src/generated'] },
   js.configs.recommended,
   tseslint.configs.recommended,
   reactRefresh.configs.vite,
