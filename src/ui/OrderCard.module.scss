@@ -1,0 +1,61 @@
+.card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border: 1px solid transparent;
+  border-left-width: 8px;
+  border-radius: var(--bl-radius-card);
+  padding: 22px 28px;
+}
+
+.number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(48px, 5vw, 78px);
+  line-height: 0.9;
+  letter-spacing: -2px;
+  color: var(--bl-text);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.items {
+  font-size: clamp(20px, 1.6vw, 28px);
+  font-weight: 600;
+  color: var(--bl-text);
+}
+
+.pickup {
+  font-size: clamp(16px, 1.1vw, 20px);
+  font-weight: 600;
+  color: var(--bl-ready-sub);
+}
+
+/* --- статусные модификаторы --- */
+.new {
+  background: var(--bl-new-card);
+  border-color: var(--bl-new-border);
+  border-left-color: var(--bl-new);
+}
+
+.preparing {
+  background: var(--bl-preparing-card);
+  border-color: var(--bl-preparing-border);
+  border-left-color: var(--bl-preparing);
+}
+
+.ready {
+  background: var(--bl-ready-card);
+  border-color: var(--bl-ready-border);
+  border-left-color: var(--bl-ready);
+  box-shadow: 0 0 0 1px rgba(95, 192, 140, 0.12);
+
+  .number,
+  .items {
+    color: var(--bl-ready-text);
+  }
+}

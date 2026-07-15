@@ -1,0 +1,90 @@
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding-bottom: 4px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(16px, 1.4vw, 22px);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.count {
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(16px, 1.4vw, 20px);
+  color: var(--bl-text-faint);
+}
+
+.overflow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px dashed #4a3829;
+  border-radius: var(--bl-radius-card);
+  padding: 16px;
+}
+
+.overflowNum {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, 2vw, 28px);
+}
+
+.overflowText {
+  font-size: clamp(16px, 1.4vw, 20px);
+  color: var(--bl-text-dim);
+  font-weight: 500;
+}
+
+/* --- статусные акценты (точка, label, overflow) --- */
+.new {
+  .dot {
+    background: var(--bl-new);
+  }
+  .label,
+  .overflowNum {
+    color: var(--bl-new);
+  }
+}
+
+.preparing {
+  .dot {
+    background: var(--bl-preparing);
+    animation: bl-pulse 1.6s ease-in-out infinite;
+  }
+  .label,
+  .overflowNum {
+    color: var(--bl-preparing);
+  }
+}
+
+.ready {
+  .dot {
+    background: var(--bl-ready);
+  }
+  .label,
+  .overflowNum {
+    color: var(--bl-ready);
+  }
+}

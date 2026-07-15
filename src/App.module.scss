@@ -1,0 +1,9 @@
+.state {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(20px, 2vw, 28px);
+  color: var(--bl-text-dim);
+  background: var(--bl-board-bg);
+}

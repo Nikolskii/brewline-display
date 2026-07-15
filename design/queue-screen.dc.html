@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #cdc6bd; font-family: 'Manrope', sans-serif; }
+  a { color: #b06a3a; }
+  a:hover { color: #8a4f28; }
+  @keyframes bl-pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.82); } }
+</style>
+</helmet>
+
+<section style="padding:64px;display:flex;flex-direction:column;gap:56px;align-items:flex-start;border-bottom:1px solid #b8b0a5;">
+
+  <div style="max-width:1280px;">
+    <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:#6d6459;font-weight:600;margin-bottom:10px;">Переполнение · лимит + «ещё N»</div>
+    <div style="font-size:18px;line-height:1.55;color:#4a4239;max-width:900px;">Столбец показывает максимум 4 карточки — размер номера и сетка неизменны. Остальные свёрнуты в строку «ещё N в очереди»: клиент видит, что он в системе.</div>
+  </div>
+
+  <div id="2a" style="display:flex;flex-direction:column;gap:16px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;background:#2a211b;color:#f4ece1;padding:5px 12px;border-radius:999px;">2a</span>
+      <span style="font-size:15px;color:#4a4239;font-weight:600;">Пиковая нагрузка · столбец «Новый» переполнен</span>
+    </div>
+
+    <div style="width:1280px;height:720px;border-radius:24px;overflow:hidden;background:radial-gradient(120% 130% at 18% 0%, #241a12 0%, #1a130d 60%, #150f0a 100%);box-shadow:0 40px 90px -30px rgba(0,0,0,.55);display:flex;flex-direction:column;padding:44px 48px 46px;gap:34px;">
+
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+        <div style="display:flex;align-items:baseline;gap:18px;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:46px;color:#f4ece1;letter-spacing:-1px;">Brewline</div>
+          <div style="font-size:20px;color:#9a8a75;font-weight:500;">Табло заказов · зал</div>
+        </div>
+        <div style="display:flex;gap:26px;align-items:center;">
+          <div style="display:flex;align-items:center;gap:9px;"><span style="width:13px;height:13px;border-radius:50%;background:#E0AE4E;"></span><span style="font-size:18px;color:#b6a48d;font-weight:500;">Новый</span></div>
+          <div style="display:flex;align-items:center;gap:9px;"><span style="width:13px;height:13px;border-radius:50%;background:#DE7A43;"></span><span style="font-size:18px;color:#b6a48d;font-weight:500;">Готовится</span></div>
+          <div style="display:flex;align-items:center;gap:9px;"><span style="width:13px;height:13px;border-radius:50%;background:#5FC08C;"></span><span style="font-size:18px;color:#b6a48d;font-weight:500;">Готов</span></div>
+        </div>
+      </div>
+
+      <div style="flex:1;display:flex;gap:22px;min-height:0;">
+
+        <!-- НОВЫЙ — переполнен -->
+        <div style="flex:1;display:flex;flex-direction:column;gap:16px;min-height:0;">
+          <div style="display:flex;align-items:center;gap:11px;padding-bottom:4px;">
+            <span style="width:14px;height:14px;border-radius:50%;background:#E0AE4E;"></span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;letter-spacing:.5px;text-transform:uppercase;color:#E0AE4E;">Новый</span>
+            <span style="margin-left:auto;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;color:#8a7a66;">7</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:20px;background:#241b14;border:1px solid #362a20;border-left:8px solid #E0AE4E;border-radius:18px;padding:18px 26px;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:64px;line-height:.9;color:#f4ece1;letter-spacing:-2px;">102</div>
+            <div style="font-size:26px;font-weight:600;color:#f4ece1;">Капучино ×2</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:20px;background:#241b14;border:1px solid #362a20;border-left:8px solid #E0AE4E;border-radius:18px;padding:18px 26px;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:64px;line-height:.9;color:#f4ece1;letter-spacing:-2px;">105</div>
+            <div style="font-size:26px;font-weight:600;color:#f4ece1;">Раф</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:20px;background:#241b14;border:1px solid #362a20;border-left:8px solid #E0AE4E;border-radius:18px;padding:18px 26px;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:64px;line-height:.9;color:#f4ece1;letter-spacing:-2px;">106</div>
+            <div style="font-size:26px;font-weight:600;color:#f4ece1;">Эспрессо</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:20px;background:#241b14;border:1px solid #362a20;border-left:8px solid #E0AE4E;border-radius:18px;padding:18px 26px;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:64px;line-height:.9;color:#f4ece1;letter-spacing:-2px;">107</div>
+            <div style="font-size:26px;font-weight:600;color:#f4ece1;">Мокко</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:12px;border:1px dashed #4a3829;border-radius:18px;padding:16px;">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:28px;color:#E0AE4E;">+3</span>
+            <span style="font-size:20px;color:#a9987f;font-weight:500;">ещё в очереди</span>
+          </div>
+        </div>
+
+        <!-- ГОТОВИТСЯ -->
+        <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;align-items:center;gap:11px;padding-bottom:4px;">
+            <span style="width:14px;height:14px;border-radius:50%;background:#DE7A43;animation:bl-pulse 1.6s ease-in-out infinite;"></span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;letter-spacing:.5px;text-transform:uppercase;color:#DE7A43;">Готовится</span>
+            <span style="margin-left:auto;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;color:#8a7a66;">2</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:24px;background:#2b1f16;border:1px solid #3f2d20;border-left:8px solid #DE7A43;border-radius:18px;padding:22px 28px;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:78px;line-height:.9;color:#f4ece1;letter-spacing:-2px;">101</div>
+            <div style="font-size:28px;font-weight:600;color:#f4ece1;">Латте</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:24px;background:#2b1f16;border:1px solid #3f2d20;border-left:8px solid #DE7A43;border-radius:18px;padding:22px 28px;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:78px;line-height:.9;color:#f4ece1;letter-spacing:-2px;">103</div>
+            <div style="font-size:28px;font-weight:600;color:#f4ece1;">Флэт уайт</div>
+          </div>
+        </div>
+
+        <!-- ГОТОВ -->
+        <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;align-items:center;gap:11px;padding-bottom:4px;">
+            <span style="width:14px;height:14px;border-radius:50%;background:#5FC08C;"></span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;letter-spacing:.5px;text-transform:uppercase;color:#5FC08C;">Готов</span>
+            <span style="margin-left:auto;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;color:#8a7a66;">1</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:24px;background:#1e2a20;border:1px solid #2f4535;border-left:8px solid #5FC08C;border-radius:18px;padding:22px 28px;box-shadow:0 0 0 1px rgba(95,192,140,.12);">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:78px;line-height:.9;color:#eafff2;letter-spacing:-2px;">099</div>
+            <div style="display:flex;flex-direction:column;gap:6px;"><div style="font-size:28px;font-weight:600;color:#eafff2;">Американо</div><div style="font-size:20px;color:#7fd3a5;font-weight:600;">заберите на баре</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section style="padding:64px;display:flex;flex-direction:column;gap:56px;align-items:flex-start;">
+
+  <div style="max-width:1280px;">
+    <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:#6d6459;font-weight:600;margin-bottom:10px;">Brewline · экран очереди в зале</div>
+    <div style="font-size:18px;line-height:1.55;color:#4a4239;max-width:900px;">Столбцы по статусам — статус читается по <em>месту</em> карточки. Заказ переезжает слева направо. Номер доминирует, состав вторичен как подтверждение.</div>
+  </div>
+
+  <!-- row of options -->
+  <div style="display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;">
+
+    <!-- ============ OPTION 1a — DARK ============ -->
+    <div id="1a" style="display:flex;flex-direction:column;gap:16px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;background:#2a211b;color:#f4ece1;padding:5px 12px;border-radius:999px;">1a</span>
+        <span style="font-size:15px;color:#4a4239;font-weight:600;">Тёмная тёплая (основной)</span>
+      </div>
+
+      <div style="width:1280px;height:720px;border-radius:24px;overflow:hidden;background:radial-gradient(120% 130% at 18% 0%, #241a12 0%, #1a130d 60%, #150f0a 100%);box-shadow:0 40px 90px -30px rgba(0,0,0,.55);display:flex;flex-direction:column;padding:44px 48px 46px;gap:34px;">
+
+        <!-- header -->
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+          <div style="display:flex;align-items:baseline;gap:18px;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:46px;color:#f4ece1;letter-spacing:-1px;">Brewline</div>
+            <div style="font-size:20px;color:#9a8a75;font-weight:500;">Табло заказов · зал</div>
+          </div>
+          <div style="display:flex;gap:26px;align-items:center;">
+            <div style="display:flex;align-items:center;gap:9px;"><span style="width:13px;height:13px;border-radius:50%;background:#E0AE4E;"></span><span style="font-size:18px;color:#b6a48d;font-weight:500;">Новый</span></div>
+            <div style="display:flex;align-items:center;gap:9px;"><span style="width:13px;height:13px;border-radius:50%;background:#DE7A43;"></span><span style="font-size:18px;color:#b6a48d;font-weight:500;">Готовится</span></div>
+            <div style="display:flex;align-items:center;gap:9px;"><span style="width:13px;height:13px;border-radius:50%;background:#5FC08C;"></span><span style="font-size:18px;color:#b6a48d;font-weight:500;">Готов</span></div>
+          </div>
+        </div>
+
+        <!-- columns -->
+        <div style="flex:1;display:flex;gap:22px;min-height:0;">
+
+          <!-- НОВЫЙ -->
+          <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;align-items:center;gap:11px;padding-bottom:4px;">
+              <span style="width:14px;height:14px;border-radius:50%;background:#E0AE4E;"></span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;letter-spacing:.5px;text-transform:uppercase;color:#E0AE4E;">Новый</span>
+              <span style="margin-left:auto;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;color:#8a7a66;">2</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:24px;background:#241b14;border:1px solid #362a20;border-left:8px solid #E0AE4E;border-radius:18px;padding:22px 28px;">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:78px;line-height:.9;color:#f4ece1;letter-spacing:-2px;">102</div>
+              <div style="display:flex;flex-direction:column;gap:6px;"><div style="font-size:28px;font-weight:600;color:#f4ece1;">Капучино ×2</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:24px;background:#241b14;border:1px solid #362a20;border-left:8px solid #E0AE4E;border-radius:18px;padding:22px 28px;">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:78px;line-height:.9;color:#f4ece1;letter-spacing:-2px;">105</div>
+              <div style="display:flex;flex-direction:column;gap:6px;"><div style="font-size:28px;font-weight:600;color:#f4ece1;">Раф</div></div>
+            </div>
+          </div>
+
+          <!-- ГОТОВИТСЯ -->
+          <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;align-items:center;gap:11px;padding-bottom:4px;">
+              <span style="width:14px;height:14px;border-radius:50%;background:#DE7A43;animation:bl-pulse 1.6s ease-in-out infinite;"></span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;letter-spacing:.5px;text-transform:uppercase;color:#DE7A43;">Готовится</span>
+              <span style="margin-left:auto;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;color:#8a7a66;">2</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:24px;background:#2b1f16;border:1px solid #3f2d20;border-left:8px solid #DE7A43;border-radius:18px;padding:22px 28px;">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:78px;line-height:.9;color:#f4ece1;letter-spacing:-2px;">101</div>
+              <div style="display:flex;flex-direction:column;gap:6px;"><div style="font-size:28px;font-weight:600;color:#f4ece1;">Латте</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:24px;background:#2b1f16;border:1px solid #3f2d20;border-left:8px solid #DE7A43;border-radius:18px;padding:22px 28px;">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:78px;line-height:.9;color:#f4ece1;letter-spacing:-2px;">103</div>
+              <div style="display:flex;flex-direction:column;gap:6px;"><div style="font-size:28px;font-weight:600;color:#f4ece1;">Флэт уайт</div></div>
+            </div>
+          </div>
+
+          <!-- ГОТОВ -->
+          <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;align-items:center;gap:11px;padding-bottom:4px;">
+              <span style="width:14px;height:14px;border-radius:50%;background:#5FC08C;"></span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;letter-spacing:.5px;text-transform:uppercase;color:#5FC08C;">Готов</span>
+              <span style="margin-left:auto;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;color:#8a7a66;">1</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:24px;background:#1e2a20;border:1px solid #2f4535;border-left:8px solid #5FC08C;border-radius:18px;padding:22px 28px;box-shadow:0 0 0 1px rgba(95,192,140,.12);">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:78px;line-height:.9;color:#eafff2;letter-spacing:-2px;">099</div>
+              <div style="display:flex;flex-direction:column;gap:6px;"><div style="font-size:28px;font-weight:600;color:#eafff2;">Американо</div><div style="font-size:20px;color:#7fd3a5;font-weight:600;">заберите на баре</div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ OPTION 1b — LIGHT ============ -->
+    <div id="1b" style="display:flex;flex-direction:column;gap:16px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;background:#2a211b;color:#f4ece1;padding:5px 12px;border-radius:999px;">1b</span>
+        <span style="font-size:15px;color:#4a4239;font-weight:600;">Светлая тёплая (день / светлый зал)</span>
+      </div>
+
+      <div style="width:1280px;height:720px;border-radius:24px;overflow:hidden;background:linear-gradient(160% 130% at 18% 0%, #fbf6ee 0%, #f4ecdf 100%);box-shadow:0 40px 90px -30px rgba(90,70,50,.4);display:flex;flex-direction:column;padding:44px 48px 46px;gap:34px;">
+
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+          <div style="display:flex;align-items:baseline;gap:18px;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:46px;color:#2a2018;letter-spacing:-1px;">Brewline</div>
+            <div style="font-size:20px;color:#8a7a66;font-weight:500;">Табло заказов · зал</div>
+          </div>
+          <div style="display:flex;gap:26px;align-items:center;">
+            <div style="display:flex;align-items:center;gap:9px;"><span style="width:13px;height:13px;border-radius:50%;background:#C08A22;"></span><span style="font-size:18px;color:#6d5f4e;font-weight:500;">Новый</span></div>
+            <div style="display:flex;align-items:center;gap:9px;"><span style="width:13px;height:13px;border-radius:50%;background:#C25E28;"></span><span style="font-size:18px;color:#6d5f4e;font-weight:500;">Готовится</span></div>
+            <div style="display:flex;align-items:center;gap:9px;"><span style="width:13px;height:13px;border-radius:50%;background:#2E8A5C;"></span><span style="font-size:18px;color:#6d5f4e;font-weight:500;">Готов</span></div>
+          </div>
+        </div>
+
+        <div style="flex:1;display:flex;gap:22px;min-height:0;">
+
+          <!-- НОВЫЙ -->
+          <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;align-items:center;gap:11px;padding-bottom:4px;">
+              <span style="width:14px;height:14px;border-radius:50%;background:#C08A22;"></span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;letter-spacing:.5px;text-transform:uppercase;color:#A9791C;">Новый</span>
+              <span style="margin-left:auto;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;color:#a99a84;">2</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:24px;background:#fffdf8;border:1px solid #ece0cd;border-left:8px solid #C08A22;border-radius:18px;padding:22px 28px;box-shadow:0 4px 14px -8px rgba(90,70,50,.25);">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:78px;line-height:.9;color:#2a2018;letter-spacing:-2px;">102</div>
+              <div style="display:flex;flex-direction:column;gap:6px;"><div style="font-size:28px;font-weight:600;color:#2a2018;">Капучино ×2</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:24px;background:#fffdf8;border:1px solid #ece0cd;border-left:8px solid #C08A22;border-radius:18px;padding:22px 28px;box-shadow:0 4px 14px -8px rgba(90,70,50,.25);">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:78px;line-height:.9;color:#2a2018;letter-spacing:-2px;">105</div>
+              <div style="display:flex;flex-direction:column;gap:6px;"><div style="font-size:28px;font-weight:600;color:#2a2018;">Раф</div></div>
+            </div>
+          </div>
+
+          <!-- ГОТОВИТСЯ -->
+          <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;align-items:center;gap:11px;padding-bottom:4px;">
+              <span style="width:14px;height:14px;border-radius:50%;background:#C25E28;animation:bl-pulse 1.6s ease-in-out infinite;"></span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;letter-spacing:.5px;text-transform:uppercase;color:#C25E28;">Готовится</span>
+              <span style="margin-left:auto;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;color:#a99a84;">2</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:24px;background:#fff7ef;border:1px solid #f0d8c4;border-left:8px solid #C25E28;border-radius:18px;padding:22px 28px;box-shadow:0 4px 14px -8px rgba(90,70,50,.25);">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:78px;line-height:.9;color:#2a2018;letter-spacing:-2px;">101</div>
+              <div style="display:flex;flex-direction:column;gap:6px;"><div style="font-size:28px;font-weight:600;color:#2a2018;">Латте</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:24px;background:#fff7ef;border:1px solid #f0d8c4;border-left:8px solid #C25E28;border-radius:18px;padding:22px 28px;box-shadow:0 4px 14px -8px rgba(90,70,50,.25);">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:78px;line-height:.9;color:#2a2018;letter-spacing:-2px;">103</div>
+              <div style="display:flex;flex-direction:column;gap:6px;"><div style="font-size:28px;font-weight:600;color:#2a2018;">Флэт уайт</div></div>
+            </div>
+          </div>
+
+          <!-- ГОТОВ -->
+          <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;align-items:center;gap:11px;padding-bottom:4px;">
+              <span style="width:14px;height:14px;border-radius:50%;background:#2E8A5C;"></span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;letter-spacing:.5px;text-transform:uppercase;color:#2E8A5C;">Готов</span>
+              <span style="margin-left:auto;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;color:#a99a84;">1</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:24px;background:#eef8f1;border:1px solid #c9e6d4;border-left:8px solid #2E8A5C;border-radius:18px;padding:22px 28px;box-shadow:0 4px 16px -8px rgba(46,138,92,.35);">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:78px;line-height:.9;color:#1e5c3c;letter-spacing:-2px;">099</div>
+              <div style="display:flex;flex-direction:column;gap:6px;"><div style="font-size:28px;font-weight:600;color:#1e5c3c;">Американо</div><div style="font-size:20px;color:#2E8A5C;font-weight:700;">заберите на баре</div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ DESIGN TOKENS ============ -->
+  <div id="1c" style="width:100%;max-width:1280px;background:#221913;border-radius:24px;padding:44px 48px;color:#e8ddcf;font-family:'Manrope',sans-serif;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:32px;">
+      <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;background:#3a2c22;color:#f4ece1;padding:5px 12px;border-radius:999px;">1c</span>
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600;">Дизайн-токены</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;">
+
+      <!-- palette dark -->
+      <div>
+        <div style="font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#9a8a75;font-weight:700;margin-bottom:16px;">Палитра · тёмная</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;">
+          <div style="display:flex;align-items:center;gap:12px;"><span style="width:22px;height:22px;border-radius:6px;background:#1a130d;border:1px solid #3a2c22;"></span>bg · #1A130D</div>
+          <div style="display:flex;align-items:center;gap:12px;"><span style="width:22px;height:22px;border-radius:6px;background:#241b14;"></span>surface · #241B14</div>
+          <div style="display:flex;align-items:center;gap:12px;"><span style="width:22px;height:22px;border-radius:6px;background:#f4ece1;"></span>text · #F4ECE1</div>
+          <div style="display:flex;align-items:center;gap:12px;"><span style="width:22px;height:22px;border-radius:6px;background:#a9987f;"></span>text-2 · #A9987F</div>
+          <div style="display:flex;align-items:center;gap:12px;"><span style="width:22px;height:22px;border-radius:6px;background:#E0AE4E;"></span>Новый · #E0AE4E</div>
+          <div style="display:flex;align-items:center;gap:12px;"><span style="width:22px;height:22px;border-radius:6px;background:#DE7A43;"></span>Готовится · #DE7A43</div>
+          <div style="display:flex;align-items:center;gap:12px;"><span style="width:22px;height:22px;border-radius:6px;background:#5FC08C;"></span>Готов · #5FC08C</div>
+        </div>
+      </div>
+
+      <!-- palette light -->
+      <div>
+        <div style="font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#9a8a75;font-weight:700;margin-bottom:16px;">Палитра · светлая</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;">
+          <div style="display:flex;align-items:center;gap:12px;"><span style="width:22px;height:22px;border-radius:6px;background:#f4ecdf;"></span>bg · #F4ECDF</div>
+          <div style="display:flex;align-items:center;gap:12px;"><span style="width:22px;height:22px;border-radius:6px;background:#fffdf8;"></span>surface · #FFFDF8</div>
+          <div style="display:flex;align-items:center;gap:12px;"><span style="width:22px;height:22px;border-radius:6px;background:#2a2018;"></span>text · #2A2018</div>
+          <div style="display:flex;align-items:center;gap:12px;"><span style="width:22px;height:22px;border-radius:6px;background:#8a7a66;"></span>text-2 · #8A7A66</div>
+          <div style="display:flex;align-items:center;gap:12px;"><span style="width:22px;height:22px;border-radius:6px;background:#C08A22;"></span>Новый · #C08A22</div>
+          <div style="display:flex;align-items:center;gap:12px;"><span style="width:22px;height:22px;border-radius:6px;background:#C25E28;"></span>Готовится · #C25E28</div>
+          <div style="display:flex;align-items:center;gap:12px;"><span style="width:22px;height:22px;border-radius:6px;background:#2E8A5C;"></span>Готов · #2E8A5C</div>
+        </div>
+      </div>
+
+      <!-- type + space -->
+      <div style="display:flex;flex-direction:column;gap:26px;">
+        <div>
+          <div style="font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#9a8a75;font-weight:700;margin-bottom:16px;">Шрифты и размеры</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:14px;color:#cabca8;">
+            <div><b style="color:#f4ece1;">Space Grotesk</b> — номера, статусы, бренд</div>
+            <div><b style="color:#f4ece1;">Manrope</b> — состав, подписи</div>
+            <div style="margin-top:6px;">Номер 78 / состав 28 / статус 20</div>
+            <div>Заголовки колонок 22 · бренд 46</div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#9a8a75;font-weight:700;margin-bottom:16px;">Отступы и радиусы</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:14px;color:#cabca8;">
+            <div>Экран padding 44/48 · gap колонок 22</div>
+            <div>Карточка padding 22×28 · gap карточек 16</div>
+            <div>Радиус карты 18 · экран 24 · бейдж 999</div>
+            <div>Статус-полоса слева 8px</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+</x-dc>
+</body>
+</html>

@@ -1,9 +1,63 @@
+/* Дизайн-токены из макета (Claude design). Единый источник значений. */
 :root {
-  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.5;
-  color-scheme: light dark;
+  /* Шрифты */
+  --font-display: 'Space Grotesk', system-ui, sans-serif; /* номера, заголовки */
+  --font-body: 'Manrope', system-ui, sans-serif;
+
+  /* Фон табло и текст */
+  --bl-board-bg: radial-gradient(120% 130% at 18% 0%, #241a12 0%, #1a130d 60%, #150f0a 100%);
+  --bl-text: #f4ece1;
+  --bl-text-muted: #b6a48d;
+  --bl-text-dim: #9a8a75;
+  --bl-text-faint: #8a7a66;
+
+  /* Статусы: акцент + фон карточки + бордер */
+  --bl-new: #e0ae4e;
+  --bl-new-card: #241b14;
+  --bl-new-border: #362a20;
+
+  --bl-preparing: #de7a43;
+  --bl-preparing-card: #2b1f16;
+  --bl-preparing-border: #3f2d20;
+
+  --bl-ready: #5fc08c;
+  --bl-ready-card: #1e2a20;
+  --bl-ready-border: #2f4535;
+  --bl-ready-text: #eafff2;
+  --bl-ready-sub: #7fd3a5;
+
+  /* Радиусы */
+  --bl-radius-board: 24px;
+  --bl-radius-card: 18px;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
 }
 
 body {
   margin: 0;
+  font-family: var(--font-body);
+  background: #150f0a;
+  color: var(--bl-text);
+}
+
+@keyframes bl-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.82);
+  }
 }
