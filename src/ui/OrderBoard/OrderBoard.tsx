@@ -1,17 +1,11 @@
-import type { Order, OrderStatus } from '@/types';
-import { COLUMN_ORDER, STATUS_LABEL } from '@/statusConfig';
-import { OrderColumn } from './OrderColumn';
+import type { Order } from '@/types';
+import { COLUMN_ORDER, STATUS_LABEL } from '@/ui/statusConfig';
+import { OrderColumn } from '@/ui/OrderColumn/OrderColumn';
+import { groupByStatus } from './groupByStatus';
 import styles from './OrderBoard.module.scss';
 
 interface Props {
   orders: Order[];
-}
-
-/** Раскладываем плоский список по колонкам-статусам (порядок внутри — как пришёл, по createdAt). */
-function groupByStatus(orders: Order[]): Record<OrderStatus, Order[]> {
-  const groups: Record<OrderStatus, Order[]> = { new: [], preparing: [], ready: [] };
-  for (const order of orders) groups[order.status].push(order);
-  return groups;
 }
 
 export function OrderBoard({ orders }: Props) {

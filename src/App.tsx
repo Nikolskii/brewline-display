@@ -1,5 +1,5 @@
 import { useOrderQueue } from '@/useOrderQueue';
-import { OrderBoard } from '@/ui/OrderBoard';
+import { OrderBoard } from '@/ui/OrderBoard/OrderBoard';
 import styles from './App.module.scss';
 
 function App() {

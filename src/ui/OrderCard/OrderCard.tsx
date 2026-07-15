@@ -1,10 +1,6 @@
 import type { Order, OrderStatus } from '@/types';
+import { formatItems } from './formatItems';
 import styles from './OrderCard.module.scss';
-
-/** «Латте», «Капучино ×2», несколько позиций — через запятую. */
-function formatItems(order: Order): string {
-  return order.items.map((i) => (i.quantity > 1 ? `${i.name} ×${i.quantity}` : i.name)).join(', ');
-}
 
 interface Props {
   order: Order;
