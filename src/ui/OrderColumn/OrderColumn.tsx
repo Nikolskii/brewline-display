@@ -1,6 +1,7 @@
 import type { Order, OrderStatus } from '@/types';
-import { STATUS_LABEL, COLUMN_LIMIT } from '@/ui/statusConfig';
 import { OrderCard } from '@/ui/OrderCard/OrderCard';
+import { COLUMN_LIMIT,STATUS_LABEL } from '@/ui/statusConfig';
+
 import styles from './OrderColumn.module.scss';
 
 interface Props {

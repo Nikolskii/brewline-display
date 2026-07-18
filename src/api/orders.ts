@@ -1,5 +1,6 @@
-import { apiGet, API_URL } from './client';
 import type { Order } from '@/types';
+
+import { API_URL,apiGet } from './client';
 
 /** Снапшот активной очереди (GET /orders). */
 export function getOrdersSnapshot(): Promise<Order[]> {

@@ -1,6 +1,7 @@
 import type { Order } from '@/types';
-import { COLUMN_ORDER, STATUS_LABEL } from '@/ui/statusConfig';
 import { OrderColumn } from '@/ui/OrderColumn/OrderColumn';
+import { COLUMN_ORDER, STATUS_LABEL } from '@/ui/statusConfig';
+
 import { groupByStatus } from './groupByStatus';
 import styles from './OrderBoard.module.scss';
 
