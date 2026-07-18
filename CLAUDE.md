@@ -38,7 +38,7 @@ Per-repo файл его не дублирует целиком.
 
 ## Локальный запуск (наполнится по мере кода)
 - `npm run dev` (Vite).
-- Требует запущенный backend + Mongo (из `brewline-infra`).
+- Требует запущенный backend + Mongo (`docker compose up` в `brewline-backend`).
 
 ## Безопасность (репо публичный)
 - Не коммитить `.env`. В код — только `VITE_*` плейсхолдеры и `.env.example`.
