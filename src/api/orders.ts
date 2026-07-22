@@ -1,4 +1,4 @@
-import type { Order } from '@/types';
+import type { Order } from '@brewline/api-types';
 
 import { API_URL,apiGet } from './client';
 

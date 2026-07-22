@@ -1,4 +1,4 @@
-import type { OrderStatus } from '@/types';
+import type { OrderStatus } from '@brewline/api-types';
 
 /** Порядок колонок на табло (слева направо). */
 export const COLUMN_ORDER: readonly OrderStatus[] = ['new', 'preparing', 'ready'];

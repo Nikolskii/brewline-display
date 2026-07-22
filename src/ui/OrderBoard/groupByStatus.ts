@@ -1,4 +1,4 @@
-import type { Order, OrderStatus } from '@/types';
+import type { Order, OrderStatus } from '@brewline/api-types';
 
 /** Раскладываем плоский список по колонкам-статусам (порядок внутри — как пришёл, по createdAt). */
 export function groupByStatus(orders: Order[]): Record<OrderStatus, Order[]> {

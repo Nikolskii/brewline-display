@@ -1,4 +1,4 @@
-import type { Order } from '@/types';
+import type { Order } from '@brewline/api-types';
 
 /** «Латте», «Капучино ×2», несколько позиций — через запятую. */
 export function formatItems(order: Order): string {

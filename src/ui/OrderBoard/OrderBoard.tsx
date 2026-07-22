@@ -1,4 +1,5 @@
-import type { Order } from '@/types';
+import type { Order } from '@brewline/api-types';
+
 import { OrderColumn } from '@/ui/OrderColumn/OrderColumn';
 import { COLUMN_ORDER, STATUS_LABEL } from '@/ui/statusConfig';
 

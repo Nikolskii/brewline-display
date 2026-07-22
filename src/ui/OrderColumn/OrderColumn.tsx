@@ -1,4 +1,5 @@
-import type { Order, OrderStatus } from '@/types';
+import type { Order, OrderStatus } from '@brewline/api-types';
+
 import { OrderCard } from '@/ui/OrderCard/OrderCard';
 import { COLUMN_LIMIT,STATUS_LABEL } from '@/ui/statusConfig';
 
